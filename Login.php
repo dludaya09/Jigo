@@ -1,31 +1,98 @@
+<!DOCTYPE html>
+
 <html>
 <head>
+    <title></title>
 </head>
-<body bgcolor="pink">
-<font size="10" face="brush script mt""> Jingo<br>
-<p align="left"><font size="4" face="century gothic">*Share best places with people*</p>
-<form>
-<p align="right"><font size="5" face="tempus sans itc">Sign In</p>
-<p1 align="right"><font size="4" face="century gothic"></p1>
-<div style="float: right; text-align: right; vertical-align:middle;">
-Userid <input type="text" name="userid"><br>
-Password <input type="text" name="password"><br>
-<button style="width:85; height:35">Log In</button><br><br>
-<p2 align="right"><font size="5" face="tempus sans itc">Sign Up.. Its Always Free</p2><br><br>
-<p3 align="right"><font size="4" face="century gothic"></p3>
-<div style="float: right; text-align: right; vertical-align:middle;">
-Userid <input type="text" name="userid"><br>
-Password <input type="text" name="password"><br>
-FirstName <input type="text" name="firstname"><br>
-MiddleName <input type="text" name="middlename"><br>
-LastName <input type="text" name="lastname"><br>
-Email <input type="text" name="mailid"><br>
-<input type="radio" name="Gender" value="male">Male
-<input type="radio" name="Gender" value="female">Female<br>
-<button style="width:85; height:35">Sign Up</button><br><br>
-</div>
-</form>
-<div align="left"> </div>
-</font>
+
+<body>
+    <?php
+        
+        if($_GET) {
+                
+                if($_GET['not_found'] == 1) {
+    ?>
+    <script type="text/javascript">
+  			alert('Not Found user') ;
+    </script> 
+
+    	<?php } } ?>
+
+    <form action="login.php" method="post">
+
+        <?php 
+
+        $database='jingo';
+        $user='root';
+        $password='';
+        $mysqli =new mysqli("localhost",$user,$password,$database);
+
+        if (mysqli_connect_errno()) {
+
+               printf("Connect failed: %s\n", mysqli_connect_error());
+               exit();
+        }
+
+        if($_POST) { 
+
+        	$userid=$_POST['userid'];
+
+        	$pwd=$_POST['password'];
+            $sql="SELECT userid, password FROM user WHERE userid='$userid' AND password='$pwd'";
+        
+        	$result=($mysqli->query($sql)); 
+        	if($result->num_rows == 1) { 
+        		header('Location:Search.php?num_rows=1');
+        	}else{ 
+        		header('Location:login.php?not_found=1') ; 
+        	} 
+        } 
+
+        if($_GET) { 
+
+        	$not_found = $_GET['not_found']; 
+        } 
+        
+        ?>
+
+        <table align="left">
+           <tr>
+                <td bgcolor="#F778A1" width="2000" height="100"><font size="10" 
+
+                face="brush script mt"><b> Jingo</b><br><font size="4" face="century gothic">*Share best places with people*
+            </tr></font>
+
+            <tr align="right">
+                <td><button onclick="Signup()" style="width:75; height:35"value="Sign Up">Sign Up<br>
+                <br></button></td>
+            </tr>
+
+            <tr align="center">
+                <td><br>
+                <br>
+                <font size="6" face="tempus sans itc">Sign In</font>
+                </td>
+            </tr>
+            <font size="4" face="century gothic">
+            <tr align="center">
+                <td><br>
+                <br>
+                Userid<br>
+                <input name="userid" type="text"><br>
+                <br>
+                Password<br>
+                <input name="password" type="password"><br>
+                <br>
+                <input value="Sign In" type="submit"></td>
+            </font>
+            </tr>
+        </table>
+
+    <script type="text/javascript">
+		function Signup(){
+    			window.open("http://localhost/jingo/jingo/signup.php");
+    		}
+    </script> 
+    </form>
 </body>
 </html>
