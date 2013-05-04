@@ -1,6 +1,28 @@
 <html>
 <body>
-  <form action="login.php" method="post">
+
+<form action="login.php" method="post">
+    <?php
+    $database='jingo';
+        $user='root';
+        $password='';
+        $mysqli =new mysqli("localhost",$user,$password,$database);
+
+        if (mysqli_connect_errno()) {
+
+               printf("Connect failed: %s\n", mysqli_connect_error());
+               exit();
+        }
+        session_start();
+if(is_null($_SESSION['userid']))
+{
+  ?>
+  <script type="text/javascript">
+  alert("Please Login");
+  window.close("http://localhost/Jingo/Jingo/Search.php");
+  </script>
+  <?php
+}?>
 <p align="left"><font size="10" face="brush script mt"></p>
 <table align="left">
 <tr>
@@ -8,15 +30,32 @@
 </tr>
 <tr>
 <td>
-<font size="6" face="tempus sans itc">
+<font size="6" face="Century Gothic"><br>Welcome<?php echo $_SESSION['userid']; ?><br></font>
+<font size="4" face="tempus sans itc">
 <a href="#search" data-toggle="tab" id="search">Search a Location</a><br>
-<a href="#editprofile" data-toggle="tab" id="editprofile" onClick="Edit()">Edit Profile</a>
+<a href="#editprofile" data-toggle="tab" id="editprofile" onClick="Edit()">Edit Profile</a><br>
+<a href="#viewprofile"data-toggle="tab" id="viewprofile" onClick="Prof()"> View Profile </a><br>
+<a href="#searchuser" data-toggle="tab" id = "searchuser" onClick="View()">Search User</a><br>
+<a href="#viewfriend" data-toggle="tab" id = "viewfriend" onClick="friend()">View Friend</a><br>
+<a href="#logout" data-toggle="tab" id="logout" onClick="logout()" > Logout </a> <br>
 </td>
 </tr>
 </table>
 <script type="text/javascript">
 function Edit(){
-	window.open("http://localhost/Jingo/Jingo/EditProfile.php");
+  window.open("http://localhost/jingo/Jingo/EditProfile.php");
+}
+function View(){
+  window.open("http://localhost/jingo/Jingo/SearchUser.php");
+}
+function Prof() {
+  window.open("http://localhost/jingo/Jingo/ViewProfile.php");
+}
+function friend(){
+  window.open("http://localhost/Jingo/Jingo/ViewFriends.php");
+}
+function logout(){
+  window.open("http://localhost/Jingo/Jingo/logout.php")
 }
 </script>
 </font>
