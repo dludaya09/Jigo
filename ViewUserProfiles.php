@@ -33,7 +33,7 @@ $sql="SELECT * FROM profile WHERE userid='$id'";
 $friend="SELECT friendid FROM friend WHERE userid='$id' or friendid='$id'";
 if($result=($mysqli->query($friend)))
 {
-    while ($row = $result->fetch_row()){
+  	while ($row = $result->fetch_row()){
         foreach($row as $key=>$value){
         	if($id==$value)
         	{
