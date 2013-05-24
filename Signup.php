@@ -1,6 +1,6 @@
 <html>
 <body>
-  <form action="Signup.php" method="post">
+	<form action="Signup.php" method="post">
 		<?php
 		if($_GET) {
 		if($_GET['not_found'] == 1) {
@@ -46,9 +46,9 @@
 Userid <br><input type="text" name="userid"><br>
 Password <br><input type="password" name="password"><br>
 Email <br><input type="text" name="email"><br>
-Created At<br><input type="date" name="createdat"><br>
+Created On<br><input type="date" name="createdat"><br>
 
-<input value="Sign Up" type="submit""></td>
+<input value="Sign Up" type="submit"></td>
 </font>
 </td>
 </tr>
