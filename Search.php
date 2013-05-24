@@ -37,6 +37,9 @@ if(is_null($_SESSION['userid']))
 <a href="#viewprofile"data-toggle="tab" id="viewprofile" onClick="Prof()"> View Profile </a><br>
 <a href="#searchuser" data-toggle="tab" id = "searchuser" onClick="View()">Search User</a><br>
 <a href="#viewfriend" data-toggle="tab" id = "viewfriend" onClick="friend()">View Friend</a><br>
+<a href="#postnote" data-toogle="tab" id="postnote" onClick="notes()">Post Notes</a><br>
+<a href="#schedule" data-toogle="tab" id="schedule" onClick="schedule()">Add Schedule</a><br>
+<a href="#tag" data-toogle="tab" id="tag" onClick="tag()">Add Tag</a><br>
 <a href="#logout" data-toggle="tab" id="logout" onClick="logout()" > Logout </a> <br>
 </td>
 </tr>
@@ -53,6 +56,15 @@ function Prof() {
 }
 function friend(){
   window.open("http://localhost/Jingo/Jingo/ViewFriends.php");
+}
+function notes(){
+  window.open("http://localhost/Jingo/Jingo/PostNote.php");
+}
+function schedule(){
+  window.open("http://localhost/Jingo/Jingo/Schedule.php");
+}
+function tag(){
+  window.open("http://localhost/Jingo/Jingo/Tags.php");
 }
 function logout(){
   window.open("http://localhost/Jingo/Jingo/logout.php")
