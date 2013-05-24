@@ -32,7 +32,6 @@ if(is_null($_SESSION['userid']))
 <td>
 <font size="6" face="Century Gothic"><br>Welcome<?php echo $_SESSION['userid']; ?><br></font>
 <font size="4" face="tempus sans itc">
-<a href="#search" data-toggle="tab" id="search">Search a Location</a><br>
 <a href="#editprofile" data-toggle="tab" id="editprofile" onClick="Edit()">Edit Profile</a><br>
 <a href="#viewprofile"data-toggle="tab" id="viewprofile" onClick="Prof()"> View Profile </a><br>
 <a href="#searchuser" data-toggle="tab" id = "searchuser" onClick="View()">Search User</a><br>
@@ -40,6 +39,7 @@ if(is_null($_SESSION['userid']))
 <a href="#postnote" data-toogle="tab" id="postnote" onClick="notes()">Post Notes</a><br>
 <a href="#schedule" data-toogle="tab" id="schedule" onClick="schedule()">Add Schedule</a><br>
 <a href="#tag" data-toogle="tab" id="tag" onClick="tag()">Add Tag</a><br>
+<a href="#location" data-toogle="tab" id="location" onClick="loc()">Locations</a><br>
 <a href="#logout" data-toggle="tab" id="logout" onClick="logout()" > Logout </a> <br>
 </td>
 </tr>
@@ -65,6 +65,9 @@ function schedule(){
 }
 function tag(){
   window.open("http://localhost/Jingo/Jingo/Tags.php");
+}
+function loc(){
+  window.open("http://localhost/Jingo/Jingo/Places.php");
 }
 function logout(){
   window.open("http://localhost/Jingo/Jingo/logout.php")
