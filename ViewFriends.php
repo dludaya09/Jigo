@@ -8,7 +8,7 @@
 
 <tr align="right">
 <td><Input type="submit" value="Logout" onClick="logout()">
-<br></button></td>
+
 </tr>
 
 <tr>
