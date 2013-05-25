@@ -11,7 +11,8 @@
 
 <div id="Jingo">
     <div id="header" class="container">
-        <h1>Jingo</a></h1>
+        <h1>Jingo</h1>
+    </div>
     </div>
 </div>
 
@@ -25,7 +26,8 @@
     <input type="text" name="userid" id="userid" required><br><br>
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required><br><br>
-    <input type="submit" value="login" id="login" onClick="login()">
+    <input type="submit" value="login" id="login"><br>
+    <a href="#Signup" data-toggle="tab" id="Sign Up" onClick="Signup()" align="center">SignUp</a><br>
     </fieldset>
 </form>
 </div>
@@ -101,11 +103,6 @@ window.open("http://localhost/jingo/jingo/signup.php");
 </form>
 </body>
 
-<script type="text/javascript">
-function login(){
-window.open("http://localhost/Jingo/Jingo/Search.php");
-}
-</script>
 
 <style type="text/css">
 html, body{
@@ -131,12 +128,12 @@ html, body{
 #login{
 position:absoloute;
 height: 30px;
-width: 90px;
+width: 100px;
 left: 300px;
 top: 400px;
 }
-.actions{
 
+.actions{
     background-color: #FFFFFF;
     bottom: 150px;
     padding: 10px;
@@ -152,6 +149,7 @@ top: 400px;
     -moz-border-radius: 20px;
     border-radius: 20px;
 }
+
 .Login{
 width: 200px;
 background: #ffffff; 
@@ -184,7 +182,8 @@ font-size:1.2em;
 color:#000;
 }
 
-#Login input#login {
+#Login input#login {   
+
 background: #3084a4;
 border:1px solid #3084a4;
 color:#fff;
@@ -204,6 +203,7 @@ border:1px solid #3084a4;
 box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 1px 4px #5d6257;
 cursor:pointer;
 }
+
 </style>
 
 </html>
